@@ -56,24 +56,36 @@ This project aims to address these challenges by analyzing operational data and 
 Retail-Supply-Chain-Risk-Analysis
 │
 ├── data
+│   ├── README.md
 │   ├── raw_data.csv
 │   └── cleaned_data.csv
 │
+├── docs
+│   ├── README.md
+│   ├── business_questions.md
+│   ├── feature_engineering.md
+│   ├── key_insights.md
+│   ├── project_roadmap.md
+│   
 ├── notebooks
-│   └── retail_supply_chain_analysis.ipynb
+│   ├── 01_data_understanding.ipynb
+│   ├── 02_data_cleaning.ipynb
+│   ├── 03_eda.ipynb
+│   └── README.md
 │
 ├── sql
-│   ├── schema.sql
-│   ├── inventory_analysis.sql
-│   └── supplier_analysis.sql
+│   ├── 01_database_setup.sql
+│   ├── 02_business_queries.sql
+│   ├── 03_advanced_sql.sql
+│   └── README.md
 │
 ├── powerbi
+│   ├── README.md
 │   └── Retail_Supply_Chain_Dashboard.pbix
 │
-├── images
-│   ├── dashboard_overview.png
-│   ├── inventory_analysis.png
-│   └── supplier_scorecard.png
+├── .gitignore
+│
+├── License
 │
 └── README.md
 ```
@@ -82,15 +94,72 @@ Retail-Supply-Chain-Risk-Analysis
 
 ## 📊 Dataset Description
 
-The dataset contains information related to:
+## Key Columns
 
-- Products
-- Inventory levels
-- Suppliers
-- Orders
-- Deliveries
-- Revenue
-- Sales Volume
+### Original Dataset Columns
+
+| Column Name | Description |
+|------------|-------------|
+| Date | Transaction date |
+| Store ID | Unique identifier for each store |
+| Product ID | Unique identifier for each product |
+| Category | Product category (Electronics, Furniture, Clothing, Toys, Groceries) |
+| Region | Store region (North, South, East, West) |
+| Inventory Level | Available inventory stock |
+| Units Sold | Number of units sold |
+| Units Ordered | Number of units ordered |
+| Demand Forecast | Predicted product demand |
+| Price | Product selling price |
+| Discount | Discount percentage applied |
+| Weather Condition | Weather during sales period |
+| Holiday/Promotion | Indicates whether a promotion or holiday was active |
+| Competitor Pricing | Competitor's product price |
+| Seasonality | Seasonal classification of sales |
+
+---
+
+### Engineered Features
+
+| Feature | Description |
+|----------|-------------|
+| Year | Extracted year from transaction date |
+| Month | Extracted month number from transaction date |
+| Month_Name | Month name for trend analysis |
+| Quarter | Business quarter derived from date |
+| Forecast_Error | Difference between actual sales and forecasted demand |
+| Absolute_Forecast_Error | Absolute forecasting deviation |
+| Inventory_Value | Inventory Level × Product Price |
+| Discount_Flag | Indicates whether a discount was applied |
+| Stock_Coverage | Inventory available relative to forecasted demand |
+| Inventory_Risk | Categorized as High Risk or Low Risk based on stock availability |
+| Price_Difference | Difference between product price and competitor price |
+
+
+## Dataset Summary
+
+- Total Records: 73,100
+- Total Columns: 26
+- Original Features: 15
+- Engineered Features: 11
+
+### Categories
+- Electronics
+- Furniture
+- Clothing
+- Toys
+- Groceries
+
+### Regions
+- North
+- South
+- East
+- West
+
+### Seasons
+- Spring
+- Summer
+- Autumn
+- Winter
 
 ### Key Columns
 
@@ -169,24 +238,6 @@ The dashboard consists of:
 - Average Lead Time
 - Stockout Risk Count
 
-### Inventory Dashboard
-
-- Category-wise Inventory Distribution
-- Stockout Risk Products
-- Inventory Trends
-
-### Supplier Dashboard
-
-- Supplier Performance Ranking
-- Delivery Delay Analysis
-- Supplier Scorecard
-
-### Risk Monitoring Dashboard
-
-- High-Risk Products
-- Days-to-Stockout Analysis
-- Inventory Risk Heatmap
-
 ---
 
 ## 🚀 Expected Business Impact
@@ -219,7 +270,7 @@ Dashboard screenshots will be added upon project completion.
 
 ## Project Status 
 
-🚧 In Progress
+**Completed**
 
 ---
 
